@@ -1,13 +1,6 @@
-<h3>People App</h3>
-<div *ngIf="isLoading$ | async">
-    ...loading
-</div>
-<div>
-    <p *ngFor="let person of people$ | async">
+<mat-selection-list [multiple]="false" #shoes>
+    <mat-list-option (selectedChange)="selectPerson(person.id)" *ngFor="let person of people$ | async">
         {{ person.firstName }} {{ person.lastName }}
-        <button (click)="selectPerson(person.id)">select</button>
-    </p>
-    <div *ngIf="selectedPerson$ | async as person">
-        <h3>Selected Person:</h3> {{ person.firstName }} {{ person.lastName }}
-    </div>
-</div>
+    </mat-list-option>
+</mat-selection-list>
+<app-person-card></app-person-card>

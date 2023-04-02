@@ -15,7 +15,6 @@ export class PeopleComponent implements OnInit {
   isLoading$: Observable<boolean> = this.store.pipe(select(isLoadingSelector));
   error$: Observable<string | null> = this.store.pipe(select(errorSelector));
   people$: Observable<IPerson[]> = this.store.pipe(select(peopleSelector));
-  selectedPerson$:Observable<IPerson | null> = this.store.pipe(select(selectedPersonSelector));
 
   constructor(private store: Store<IAppStateInstance>) {}
   ngOnInit(): void {
