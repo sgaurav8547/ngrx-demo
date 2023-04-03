@@ -10,7 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { storageMetaReducer } from './storage.metareducer';
 import { LocalStorageService } from './service/local-storage.service';
 import { ROOT_STORAGE_KEYS, ROOT_LOCAL_STORAGE_KEY } from './app.token';
-import { reducers, rootReducers } from './store/theme.reducers';
+import { reducers } from './store/theme.reducers';
 import { PeopleModule } from './people/people.module';
 
 @NgModule({
