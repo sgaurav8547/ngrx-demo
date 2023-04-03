@@ -10,12 +10,11 @@ export const initialState: IThemeState = {
     theme: { class: 'pink-theme', name: 'pink theme' }
 };
 
-export const rootReducers = createReducer(initialState, on(fromActions.rootActions, (state, action) => ({...state, theme: action.layout}))) 
-export function reducer(state: IThemeState | undefined, action: Action): IThemeState {
+export const rootReducers = createReducer(initialState, on(fromActions.rootActions, (state, action) => ({ ...state, theme: action.layout })))
+function reducer(state: IThemeState | undefined, action: Action): IThemeState {
     return rootReducers(state, action);
-  }
+}
 
-  
-export const reducers: ActionReducerMap<{layout: IThemeState}> = {
+export const reducers: ActionReducerMap<{ layout: IThemeState }> = {
     layout: reducer,
-  };
+};
