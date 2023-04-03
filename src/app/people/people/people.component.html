@@ -1,5 +1,10 @@
-<mat-selection-list [multiple]="false" #shoes>
-    <mat-list-option (selectedChange)="selectPerson(person.id)" *ngFor="let person of people$ | async">
+<div *ngIf="isLoading$ | async" class="text-center">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+<mat-selection-list  [multiple]="false" #shoes>
+    <mat-list-option [selected]="(selectedPerson$ | async)?.id == person.id" (selectedChange)="selectPerson(person.id)" *ngFor="let person of people$ | async">
         {{ person.firstName }} {{ person.lastName }}
     </mat-list-option>
 </mat-selection-list>

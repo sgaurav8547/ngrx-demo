@@ -15,14 +15,15 @@ export class PeopleComponent implements OnInit {
   isLoading$: Observable<boolean> = this.store.pipe(select(isLoadingSelector));
   error$: Observable<string | null> = this.store.pipe(select(errorSelector));
   people$: Observable<IPerson[]> = this.store.pipe(select(peopleSelector));
+  selectedPerson$:Observable<IPerson | null> = this.store.pipe(select(selectedPersonSelector));
 
   constructor(private store: Store<IAppStateInstance>) {}
   ngOnInit(): void {
-    this.store.dispatch(PeopleActions.getPeople());
+    this.store.dispatch(new PeopleActions.GetPeople());
   }
 
   selectPerson(id: string) {
-    this.store.dispatch(PeopleActions.selectPerson({id}));
+    this.store.dispatch(new PeopleActions.SelectPerson(id));
   }
 
 }
